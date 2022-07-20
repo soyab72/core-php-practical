@@ -1,5 +1,7 @@
 <?php
 
+// Code format is not okay
+
 class FormatData
 {
     /**
@@ -11,9 +13,9 @@ class FormatData
 	protected function formatNewsData($rows) : array
 	{
 		try {
-			$news = [];
+			$news = [];  // what if $row is empty or other type data in that check $row
 			foreach($rows as $row) {
-				$n = new News();
+				$n = new News();  // $n should be proper var name
 				$comments = isset($row['comments']) ? CommentManager::getInstance()->formatNewsComments($row['comments']) : [];
 				$news[] = $n->setId($row['id'])
 				  ->setTitle($row['title'])
@@ -23,6 +25,7 @@ class FormatData
 			}
 			return $news;
 		} catch (\Exception $e) {
+			// Return line number and file number as well applicable for all place
 			return $e->getMessage();
 		}
 	}
@@ -36,7 +39,7 @@ class FormatData
 	protected function formatCommentsData($rows) : array
 	{
 		try {
-			$comments = [];
+			$comments = []; // check $row data in if condition
 			foreach($rows as $row) {
 				$n = new Comment();
 				$comments[] = $n->setId($row['id'])
@@ -55,7 +58,7 @@ class FormatData
      * Data structure change for news comments.
      *
      * @param array $row
-     * @return ?array
+     * @return ?array.    It should be mixed data type in this type of case but instead return null return blank array []
      */
 	protected function formatNewsComments($comments) : ?array
 	{
