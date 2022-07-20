@@ -6,6 +6,7 @@ require_once(ROOT . '/utils/CommentManager.php');
 define('MESSAGE',include('message.php'));
 
 $newsData = NewsManager::getInstance()->listNewsWithComment();
+// Add if condition to check isset data key
 foreach ($newsData['data'] as $news) {
 	echo "<pre>";
 	echo("############ NEWS " . $news->getTitle() . " ############\n");
@@ -17,6 +18,7 @@ foreach ($newsData['data'] as $news) {
 	}
 }
 
+////// Remove unecessory code
 // $commentManager = CommentManager::getInstance();
 // $c = $commentManager->deleteComment(16);
 // print_r($c);
