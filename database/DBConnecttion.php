@@ -73,7 +73,7 @@ class DBConnecttion
 			$password = $this->config['pass'];
 			$this->pdo = new \PDO($dsn, $user, $password);
 		} catch (\Exception $e) {
-			echo $e->getMessage();
+			echo $e->getMessage();   /// cahce msg should be uniform in whole project
 		}
 	}
 }
