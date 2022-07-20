@@ -61,7 +61,7 @@ class NewsManager extends FormatData
 	public function listNews() : array
 	{
 		try {
-			$rows = $this->query->select('*')->from('news')->get();
+			$rows = $this->query->select('*')->from('news')->get(); // avoid * 
 			return [
 				"error" => false,
 				"data" => $this->formatNewsData($rows),
@@ -97,12 +97,11 @@ class NewsManager extends FormatData
 					"error" => false,
 					"data" => $id,
 				];
-			} else {
-				return [
+			}
+			return [
 					"error" => false,
 					"message" => MESSAGE['AddNews'],
 				];
-			}
 		} catch (\Exception $e) {
 			return [
 				"error" => false,
@@ -127,12 +126,12 @@ class NewsManager extends FormatData
 					"error" => false,
 					"message" => MESSAGE['DeleteSucces'],
 				];
-			} else {
-				return [
+			} 
+			/// removed else
+			return [
 					"error" => true,
 					"data" => MESSAGE['NewsDelete']
 				];
-			}
 		} catch (\Exception $e) {
 			return [
 				"error" => true,
