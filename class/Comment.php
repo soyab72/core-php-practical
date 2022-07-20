@@ -1,5 +1,7 @@
 <?php
 
+// Code formate not ok pls find code format option in editor 
+
 class Comment
 {
 	protected $id, $body, $createdAt, $newsId;
