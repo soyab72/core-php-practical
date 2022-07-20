@@ -1,5 +1,7 @@
 <?php
 
+// CODE FORMAT ISSUE
+
 class DBBuilder
 {
 	public $pdo;
@@ -58,7 +60,7 @@ class DBBuilder
      */
 	public function exec($sql) : array
 	{
-		return $this->pdo->exec($sql);
+		return $this->pdo->exec($sql);  // are you sure this result in array only? pls check
 	}
 
 	/**
